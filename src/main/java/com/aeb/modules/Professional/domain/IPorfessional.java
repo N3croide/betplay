@@ -1,5 +1,7 @@
 package com.aeb.modules.Professional.domain;
 
-public interface IPorfessional {
+import com.aeb.genericClasses.person.domain.IPerson;
+
+public interface IPorfessional extends IPerson< Professional >{
 
 }
