@@ -1,4 +1,4 @@
-package com.aeb.modules.Professional.domain;
+package com.aeb.modules.professional.domain;
 
 public class Professional {
     private Integer id;

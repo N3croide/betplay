@@ -1,4 +1,4 @@
-package com.aeb.modules.Professional.application;
+package com.aeb.modules.professional.application;
 
 public class testUseCase {
     

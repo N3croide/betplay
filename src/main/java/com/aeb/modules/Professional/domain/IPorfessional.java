@@ -1,4 +1,4 @@
-package com.aeb.modules.Professional.domain;
+package com.aeb.modules.professional.domain;
 
 import com.aeb.genericClasses.person.domain.IPerson;
 

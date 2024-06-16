@@ -1,7 +1,7 @@
 package com.aeb;
 
-import com.aeb.modules.Professional.domain.Professional;
-import com.aeb.modules.Professional.infrastructure.MySQLProfessionalRepository;
+import com.aeb.modules.professional.domain.Professional;
+import com.aeb.modules.professional.infrastructure.MySQLProfessionalRepository;
 
 public class Main {
     public static void main(String[] args) {
