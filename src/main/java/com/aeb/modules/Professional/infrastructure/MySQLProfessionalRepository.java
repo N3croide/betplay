@@ -11,13 +11,18 @@ import com.aeb.modules.Professional.domain.Professional;
 
 public class MySQLProfessionalRepository extends MySQLRepository<Professional> implements IPorfessional{
 
-    @Override
-    protected Professional mapResultSetToEntity(ResultSet resultSet) throws SQLException {
-        return new Professional();
+
+    public MySQLProfessionalRepository(String url, String username, String password){
+        super(url, username, password);
     }
 
     @Override
-    protected PreparedStatement createFindByIdStatement(Connection connection, Long id) throws SQLException {
+    protected Professional mapResultSetToEntity(ResultSet resultSet) throws SQLException {
+        return new Professional(resultSet.getInt("id"), resultSet.getString("name"));
+    }
+
+    @Override
+    protected PreparedStatement createFindByIdStatement(Connection connection, Integer id) throws SQLException {
         String query = "SELECT id,name FROM professional WHERE id = ?";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setLong(1, id);
@@ -25,11 +30,12 @@ public class MySQLProfessionalRepository extends MySQLRepository<Professional> i
     }
 
     @Override
-    protected PreparedStatement createSaveStatement(Connection connection, Customer customer) throws SQLException {
-        String query = "INSERT INTO customers (id, name) VALUES (?, ?)";
+    protected PreparedStatement createSaveStatement(Connection connection, Professional professional) throws SQLException {
+        String query = "INSERT INTO professional (name, lastname, age) VALUES (?, ?, ?)";
         PreparedStatement statement = connection.prepareStatement(query);
-        statement.setLong(1, customer.getId());
-        statement.setString(2, customer.getName());
+        statement.setString(1, professional.getName());
+        statement.setString(2, professional.getLastName());
+        statement.setInt(3,professional.getAge());
         return statement;
     }
 

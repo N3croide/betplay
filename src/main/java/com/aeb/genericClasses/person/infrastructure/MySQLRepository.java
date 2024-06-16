@@ -31,7 +31,7 @@ public abstract class MySQLRepository<T> implements IPerson<T>{
     public List<T> getAll(){
         List<T> entities = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(url, username, password)){
-            String query = "SELECT id,name from " + getTableName();
+            String query = "SELECT id, name from " + getTableName();
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(query);
             while (result.next()) {
