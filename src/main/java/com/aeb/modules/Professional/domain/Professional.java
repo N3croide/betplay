@@ -5,12 +5,23 @@ public class Professional {
     private String name;
     private Integer age;
     private String lastName;
+    private String role;
 
 
-    public Professional( Integer age, String name, String lastName) {
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public Professional( Integer id, Integer age, String name, String lastName, String role) {
         this.name = name;
         this.age = age;
         this.lastName = lastName;
+        this.id = id;
+        this.role = role;
     }
 
     public Professional(Integer id, String name){

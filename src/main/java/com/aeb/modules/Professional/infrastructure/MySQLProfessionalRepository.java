@@ -31,11 +31,14 @@ public class MySQLProfessionalRepository extends MySQLRepository<Professional> i
 
     @Override
     protected PreparedStatement createSaveStatement(Connection connection, Professional professional) throws SQLException {
-        String query = "INSERT INTO professional (name, lastname, age) VALUES (?, ?, ?)";
+        String query = "INSERT INTO professional (id, name, last_name, age, role) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement statement = connection.prepareStatement(query);
-        statement.setString(1, professional.getName());
-        statement.setString(2, professional.getLastName());
-        statement.setInt(3,professional.getAge());
+        System.out.println(professional);
+        statement.setInt(1, professional.getId());
+        statement.setString(2, professional.getName());
+        statement.setString(3,professional.getLastName());
+        statement.setInt(4,professional.getAge());
+        statement.setString(5,professional.getRole());
         return statement;
     }
 
