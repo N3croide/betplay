@@ -1,7 +1,9 @@
 package com.aeb;
 
+import com.aeb.modules.professional.adapters.in.ProfessionalConsoleAdapter;
+import com.aeb.modules.professional.adapters.out.MySQLProfessionalRepository;
+import com.aeb.modules.professional.application.ProfessionalService;
 import com.aeb.modules.professional.domain.Professional;
-import com.aeb.modules.professional.infrastructure.MySQLProfessionalRepository;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,9 +11,12 @@ public class Main {
         String username = "root";
         String password = "kike";
 
-        MySQLProfessionalRepository ProRepo = new MySQLProfessionalRepository(url, username, password);
-        Professional pro1 = new Professional(1005333201, 2, "Andres", "Bustamante", "siks");
-        ProRepo.save(pro1);
-        System.out.println(ProRepo.getAll());
+        MySQLProfessionalRepository out = new MySQLProfessionalRepository(url, username, password);
+        ProfessionalService serv = new ProfessionalService(out);
+        ProfessionalConsoleAdapter in = new ProfessionalConsoleAdapter(serv);
+
+        in.start();
+        
+        
     }
 }   

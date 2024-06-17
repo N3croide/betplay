@@ -1,4 +1,4 @@
-package com.aeb.modules.professional.infrastructure;
+package com.aeb.modules.professional.adapters.out;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.aeb.genericClasses.person.infrastructure.MySQLRepository;
-import com.aeb.modules.professional.domain.IPorfessional;
 import com.aeb.modules.professional.domain.Professional;
+import com.aeb.modules.professional.infrastructure.IProfessional;
 
-public class MySQLProfessionalRepository extends MySQLRepository<Professional> implements IPorfessional{
+public class MySQLProfessionalRepository extends MySQLRepository<Professional> implements IProfessional{
 
 
     public MySQLProfessionalRepository(String url, String username, String password){
