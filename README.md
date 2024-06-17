@@ -54,7 +54,7 @@ CREATE TABLE `professional` (
   `role` varchar(50) NOT NULL,
   `lastName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `age` int NOT NULL,
-  `rol` enum('Medical','Technical') DEFAULT NULL,
+  `staffType` enum('Medical','Technical') DEFAULT NULL,
   `idStaff` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_professional_staff` (`idStaff`),
